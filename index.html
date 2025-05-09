@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketMaestro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>TicketMaestro</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#create-wallet" onclick="showSection('create-wallet')">Create Wallet</a></li>
+            <li><a href="#view-balance" onclick="showSection('view-balance')">View Balance</a></li>
+            <li><a href="#buy-ticket" onclick="showSection('buy-ticket')">Buy Ticket</a></li>
+            <li><a href="#transfer-ticket" onclick="showSection('transfer-ticket')">Transfer Ticket</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="create-wallet" class="tab-content">
+            <h2>Create Wallet</h2>
+            <p>Content for creating a wallet goes here.</p>
+        </section>
+        <section id="view-balance" class="tab-content" style="display: none;">
+            <h2>View Balance</h2>
+            <p>Content for viewing balance goes here.</p>
+        </section>
+        <section id="buy-ticket" class="tab-content" style="display: none;">
+            <h2>Buy Ticket</h2>
+            <p>Content for buying a ticket goes here.</p>
+        </section>
+        <section id="transfer-ticket" class="tab-content" style="display: none;">
+            <h2>Transfer Ticket</h2>
+            <p>Content for transferring a ticket goes here.</p>
+        </section>
+    </main>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.tab-content');
+            sections.forEach(section => {
+                section.style.display = section.id === sectionId ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
