@@ -12,20 +12,39 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#create-wallet" onclick="showSection('create-wallet')">Create Wallet</a></li>
-            <li><a href="#view-balance" onclick="showSection('view-balance')">View Balance</a></li>
-            <li><a href="#buy-ticket" onclick="showSection('buy-ticket')">Buy Ticket</a></li>
-            <li><a href="#transfer-ticket" onclick="showSection('transfer-ticket')">Transfer Ticket</a></li>
+            <li><a id="nav-create-wallet" href="#create-wallet">Create Wallet</a></li>
+            <li><a id="nav-view-balance" href="#view-balance">View Balance</a></li>
+            <li><a id="nav-buy-ticket" href="#buy-ticket">Buy Ticket</a></li>
+            <li><a id="nav-transfer-ticket" href="#transfer-ticket">Transfer Ticket</a></li>
         </ul>
     </nav>
     <main>
         <section id="create-wallet" class="tab-content">
             <h2>Create Wallet</h2>
-            <p>Content for creating a wallet goes here.</p>
+            <div>
+                <input type="password" id="password-create" placeholder="Enter a password for your Key Store" >
+            </div>
+            <div style="padding-top: 1rem;">
+                <button id="create-wallet-button">Create Wallet</button>
+            </div>
+            <div id="wallet-details" style="display: none; margin-top: 1rem;">
+                <p><strong>Wallet Address:</strong> <span id="wallet-address"></span></p>
+                <p><strong>Private Key:</strong> <span id="wallet-private-key"></span></p>
+                <p><strong>Keystore File:</strong> <textarea id="wallet-keystore-file" rows="5" cols="50" readonly="true" style="width: 65%;"></textarea></p>
+                <button id="download-wallet-button">Download Wallet</button>
+            </div>
         </section>
         <section id="view-balance" class="tab-content" style="display: none;">
             <h2>View Balance</h2>
-            <p>Content for viewing balance goes here.</p>
+            <div>
+                <input id="view-wallet-address" placeholder="Enter your wallet address." >
+            </div>
+            <div style="padding-top: 1rem;">
+                <button id="create-wallet-button">View Balance</button>
+            </div>
+            <div id="wallet-balance" style="display: none; margin-top: 1rem;">
+                <p><strong>HETH Balance:</strong><span id="HETH-balance"></span></p>
+            </div>
         </section>
         <section id="buy-ticket" class="tab-content" style="display: none;">
             <h2>Buy Ticket</h2>
@@ -36,13 +55,7 @@
             <p>Content for transferring a ticket goes here.</p>
         </section>
     </main>
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.tab-content');
-            sections.forEach(section => {
-                section.style.display = section.id === sectionId ? 'block' : 'none';
-            });
-        }
-    </script>
 </body>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="project.js"></script>
 </html>
