@@ -59,6 +59,18 @@ input, textarea {
     font-size: 1rem;
 }
 
+select {
+    width: 25%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -74,5 +86,5 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #f3b200f4;
 }

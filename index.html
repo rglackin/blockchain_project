@@ -37,13 +37,25 @@
         <section id="view-balance" class="tab-content" style="display: none;">
             <h2>View Balance</h2>
             <div>
-                <input id="view-wallet-address" placeholder="Enter your wallet address." >
+                <label for="view-user-role-select"><strong>Select your role:</strong></label>
+                <select id="view-user-role-select">
+                    <option value="attendee">Attendee</option>
+                    <option value="doorman">Doorman</option>
+                    <option value="venue">Venue</option>
+                </select>
+            </div>
+            <div id="wallet-address-input-container">
+                <input id="view-wallet-address-input" placeholder="Enter your wallet address." >
             </div>
             <div style="padding-top: 1rem;">
-                <button id="create-wallet-button">View Balance</button>
+                <button id="view-balance-button">View Balance</button>
             </div>
             <div id="wallet-balance" style="display: none; margin-top: 1rem;">
-                <p><strong>HETH Balance:</strong><span id="HETH-balance"></span></p>
+                <p><strong>Crypto Balance: </strong><span id="crypto-balance"></span></p>
+                <p><strong>Ticket token Balance: </strong><span id="ticket-balance"></span></p>
+            </div>
+            <div id="venue-balance" style="display: none; margin-top: 1rem;">
+                <p><strong>Remaining Supply: </strong><span id="venue-balance-span"></span></p>
             </div>
         </section>
         <section id="buy-ticket" class="tab-content" style="display: none;">
@@ -57,5 +69,9 @@
     </main>
 </body>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-    <script src="project.js"></script>
+    <script src="config.js"></script>
+    <script src="ui.js"></script>
+    <script src="wallet.js"></script>
+    <script src="balance.js"></script>
+    <script src="main.js"></script>
 </html>
