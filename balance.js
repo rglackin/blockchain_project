@@ -18,14 +18,7 @@ async function getBalance() {
 }
 
 async function attendeeBalance() {
-  const walletAddressInput = document.getElementById(
-    "view-wallet-address-input"
-  );
-  const walletAddress = walletAddressInput.value;
-  if (!web3.utils.isAddress(walletAddress)) {
-    alert("Please enter a valid wallet address.");
-    return;
-  }
+  const walletAddress= getAddress();
   try {
     const balance = await web3.eth.getBalance(walletAddress);
     const balanceInEther = web3.utils.fromWei(balance, "ether");
@@ -71,8 +64,32 @@ async function venueBalance() {
   venueBalanceDiv.style.display = "block";
 }
 
-function doormanBalance() {
-    
+ async function doormanBalance() {
+    // displays whether or not the wallet contains a ticket
+    const walletAddress= getAddress();
+    const contract = new web3.eth.Contract(ABI, contractAddress);
+    const hasTicket= await contract.methods.hasTicket(walletAddress).call();
+    const balance = await contract.methods.balanceOf(walletAddress).call();
+    const balanceInTokens = web3.utils.fromWei(balance, "ether");
+    const doormanSpan = document.getElementById("doorman-span");
+    doormanSpan.textContent =  hasTicket ? "Yes" : "No";
+    doormanSpan.textContent += " (" + balanceInTokens + " tickets)";
+
+    const doormanDiv = document.getElementById("doorman-check");
+    doormanDiv.style.display = "block";
 }
+
+function getAddress(){
+    const walletAddressInput = document.getElementById(
+        "view-wallet-address-input"
+    );
+    const walletAddress = walletAddressInput.value;
+    if (!web3.utils.isAddress(walletAddress)) {
+        alert("Please enter a valid wallet address.");
+        return;
+    }
+    return walletAddress;
+}
+
 
 

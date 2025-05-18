@@ -57,14 +57,66 @@
             <div id="venue-balance" style="display: none; margin-top: 1rem;">
                 <p><strong>Remaining Supply: </strong><span id="venue-balance-span"></span></p>
             </div>
+            <div id="doorman-check" style="display: none; margin-top: 1rem;">
+                <p><strong>Has Ticket: </strong><span id="doorman-span"></span></p>
+            </div>
         </section>
         <section id="buy-ticket" class="tab-content" style="display: none;">
             <h2>Buy Ticket</h2>
-            <p>Content for buying a ticket goes here.</p>
+            <div>
+                <label for="buy-keystore-file"><strong>Upload Keystore File:</strong></label>
+                <input type="file" id="buy-keystore-file" accept="application/json">
+            </div>
+            <div style="margin-top: 1rem;">
+                <input type="password" id="buy-keystore-password" placeholder="Enter your keystore password">
+            </div>
+            <div style="margin-top: 1rem;">
+                <button id="load-wallet-button">Load Wallet</button>
+            </div>
+            <div id="wallet-info" style="display:none; margin-top:1rem;">
+                <strong>Wallet Address:</strong> <span id="buy-wallet-address"></span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <input type="number" id="buy-eth-amount" placeholder="ETH to spend (e.g. 0.01)" min="0" step="0.0001">
+            </div>
+            <div style="margin-top: 1rem;">
+                <button id="buy-ticket-button">Buy Ticket</button>
+            </div>
+            <div id="buy-ticket-request" style="margin-top: 1rem; display: none;">
+                <strong>Transaction Request:</strong>
+                <pre id="buy-ticket-request-json"></pre>
+            </div>
+            <div id="buy-ticket-result" style="margin-top: 1rem; display: none;">
+                <strong>Transaction Result:</strong>
+                <pre id="buy-ticket-result-json"></pre>
+            </div>
         </section>
         <section id="transfer-ticket" class="tab-content" style="display: none;">
-            <h2>Transfer Ticket</h2>
-            <p>Content for transferring a ticket goes here.</p>
+            <h2>Transfer Ticket Back to Vendor</h2>
+            <div>
+                <label for="transfer-keystore-file"><strong>Upload Keystore File:</strong></label>
+                <input type="file" id="transfer-keystore-file" accept="application/json">
+            </div>
+            <div style="margin-top: 1rem;">
+                <input type="password" id="transfer-keystore-password" placeholder="Enter your keystore password">
+            </div>
+            <div style="margin-top: 1rem;">
+                <button id="load-transfer-wallet-button">Load Wallet</button>
+            </div>
+            <div id="transfer-wallet-info" style="display:none; margin-top:1rem;">
+                <strong>Wallet Address:</strong> <span id="transfer-wallet-address"></span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <button id="transfer-ticket-button">Return Ticket to Vendor</button>
+            </div>
+            <div id="transfer-ticket-request" style="margin-top: 1rem; display: none;">
+                <strong>Transaction Request:</strong>
+                <pre id="transfer-ticket-request-json"></pre>
+            </div>
+            <div id="transfer-ticket-result" style="margin-top: 1rem; display: none;">
+                <strong>Transaction Result:</strong>
+                <pre id="transfer-ticket-result-json"></pre>
+            </div>
         </section>
     </main>
 </body>
@@ -74,4 +126,6 @@
     <script src="wallet.js"></script>
     <script src="balance.js"></script>
     <script src="main.js"></script>
+    <script src="buyticket.js"></script>
+    <script src="transferticket.js"></script>
 </html>
